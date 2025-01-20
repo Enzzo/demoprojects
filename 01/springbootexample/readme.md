@@ -25,11 +25,13 @@
    cd <папка с проектом>
    
 2. Соберите проект с помощью Maven:
-```
-mvn clean install
+	```
+	mvn clean install
+
 3. Запустите приложение:
 ```
 java -jar target/springbootexample-0.0.1-SNAPSHOT.jar
+
 4. Доступ:
 - **HTML-страница:** http://localhost:8080/ — Приветственное сообщение через Thymeleaf.
 - **REST API:** http://localhost:8080/api/hello — Возвращает JSON с приветственным сообщением.
