@@ -1,2 +1,2 @@
 # demoprojects
-Demo projects for hiring
+В этом репозитории хранятся проекты в порядке возрастания сложности.
