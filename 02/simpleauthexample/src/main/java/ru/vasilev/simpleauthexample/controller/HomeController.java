@@ -22,12 +22,4 @@ public class HomeController {
 	public String loginPage() {
 		return "login";
 	}
-//	
-//	@PostMapping("/login")
-//	public String login() {
-////			@RequestParam("login") String login,
-////			@RequestParam("password") String password) {
-////		System.out.printf("login: %s\npassword: %s\n", login, password);
-//		return "redirect:/secure";
-//	}
 }

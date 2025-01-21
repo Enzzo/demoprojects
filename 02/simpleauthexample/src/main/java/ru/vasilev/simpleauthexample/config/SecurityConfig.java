@@ -38,21 +38,18 @@ public class SecurityConfig {
 	}
 	
 	@Bean
-	public PasswordEncoder passwordEncoder() {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		System.out.println(encoder.encode("admin"));
-		System.out.println(encoder.encode("password"));
-		return encoder;
+	PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
 	}
 	
 	@Bean
-	public InMemoryUserDetailsManager userDetailsService(PasswordEncoder passwordEncoder) {
+	InMemoryUserDetailsManager userDetailsService() {
 		UserDetails admin = User.withUsername("admin")
-				.password("admin")
+				.password(passwordEncoder().encode("admin"))
 				.roles("ADMIN")
 				.build();
 		UserDetails user = User.withUsername("user")
-				.password("password")
+				.password(passwordEncoder().encode("password"))
 				.roles("USER")
 				.build();
 		

@@ -6,10 +6,10 @@
 	<body>
 		<form th:action="@{/login}" method="post">
 			<label for="login">login:</label>
-			<input type="text" id="login" placeholder="login" required />
+			<input type="text" name="username" id="login" placeholder="login" required />
 			<br>	
 			<label for="password">password:</label>
-			<input type="password" id="password" placeholder="password" required />
+			<input type="password" name="password" id="password" placeholder="password" required />
 			<br>
 			<button type="submit">Войти</button>
 			<div th:if="${param.error}">
