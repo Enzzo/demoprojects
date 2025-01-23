@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: UserManagement
+  profiles:
+    active: dev
+  datasource:
+    driver-dlass-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
