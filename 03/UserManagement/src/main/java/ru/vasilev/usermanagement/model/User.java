@@ -28,7 +28,7 @@ public class User {
 	
 	@Column(nullable = false)
 	@NotBlank(message = "Пароль не может быть пустым")
-	@Size(min = 6, message = "Пароль должен быть не менее 6 символов")
+	@Size(min = 3, message = "Пароль должен быть не менее 6 символов")
 	private String password;
 	
 	@Column(nullable = false)

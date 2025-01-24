@@ -3,6 +3,7 @@ package ru.vasilev.usermanagement.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,10 +13,12 @@ import ru.vasilev.usermanagement.repository.UserRepository;
 @Service
 @Transactional
 public class UserService {
-	private final UserRepository userRepository;
+	private UserRepository userRepository;
+	private PasswordEncoder passwordEncoder;
 	
-	public UserService(UserRepository userRepository) {
+	public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
 		this.userRepository = userRepository;
+		this.passwordEncoder = passwordEncoder;
 	}
 	
 	@Transactional(readOnly = true)
@@ -34,6 +37,7 @@ public class UserService {
 	}
 	
 	public User save(User user) {
+		user.setPassword(hashPassword(user.getPassword()));
 		return userRepository.save(user);
 	}
 
@@ -47,5 +51,9 @@ public class UserService {
 	
 	public void deleteUserById(Integer id) {
 		userRepository.deleteById(id);
+	}
+	
+	private String hashPassword(String password) {
+		return passwordEncoder.encode(password);
 	}
 }

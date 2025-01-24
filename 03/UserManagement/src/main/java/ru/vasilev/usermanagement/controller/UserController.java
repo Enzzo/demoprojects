@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -24,8 +25,8 @@ import ru.vasilev.usermanagement.service.UserService;
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
-	private final UserService userService;
-
+	private UserService userService;
+	
 	public UserController(UserService userService) {
 		this.userService = userService;
 	}
@@ -43,8 +44,8 @@ public class UserController {
 	}
 
 	@PostMapping
-	public User createUser(@Valid @RequestBody User user) {
-		return userService.save(user);
+	public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
+		return ResponseEntity.status(201).body(userService.save(user));
 	}
 
 	@PutMapping("/{id}")

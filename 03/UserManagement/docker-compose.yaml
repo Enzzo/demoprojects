@@ -1,9 +1,9 @@
 services:
   dev_db:
     image: postgres:latest
-    container_name: dev_db
+    container_name: um_dev_db
     environment:
-      POSTGRES_DB: user_management_dev_db
+      POSTGRES_DB: dev_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
@@ -12,9 +12,9 @@ services:
       - dev_data:/var/lib/postgresql/data
   prod_db:
     image: postgres:latest
-    container_name: prod_db
+    container_name: um_prod_db
     environment:
-      POSTGRES_DB: user_management_prod_db
+      POSTGRES_DB: prod_db
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     ports:
