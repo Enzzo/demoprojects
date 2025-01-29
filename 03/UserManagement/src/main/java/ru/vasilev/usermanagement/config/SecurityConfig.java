@@ -22,9 +22,11 @@ public class SecurityConfig {
 							"/swagger-ui.html",
 							"/swagger-ui/**",
 							"/v3/api-docs/**",
-							"api-docs/**")
+							"/api-docs/**",
+							"/api/users/register")
 					.permitAll()
 					.requestMatchers("/api/users", "/api/users/**").hasRole("ADMIN")
+					.requestMatchers("/api/users/{id}").hasAnyRole("ADMIN", "USER")
 					.anyRequest().authenticated()
 				)
             .formLogin().and()

@@ -1,5 +1,12 @@
 package ru.vasilev.usermanagement.model;
 
+import java.util.Collection;
+import java.util.Collections;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "users")
-public class User {
+public class Person implements UserDetails{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -36,9 +43,14 @@ public class User {
 	@Pattern(regexp = "USER|ADMIN", message = "Роль должна быть USER или ADMIN")
 	private String role;
 
-	public User(String username, String password, String role) {
+	public Person(String username, String password, String role) {
 		this.username = username;
 		this.password = password;
 		this.role = role;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return Collections.singletonList(new SimpleGrantedAuthority(role));
 	}
 }

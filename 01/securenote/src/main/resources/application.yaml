@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: securenote
+  profiles:
+    activate: dev
