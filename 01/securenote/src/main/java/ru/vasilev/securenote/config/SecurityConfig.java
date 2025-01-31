@@ -19,7 +19,7 @@ public class SecurityConfig {
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 		http
 		.headers(headers -> headers.frameOptions().disable()) // <== Отключаем защиту от iframe
-        .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**")) // <== Отключаем CSRF для H2 Console
+        .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**", "/h2-console/**", "/swagger-ui/**")) // <== Отключаем CSRF для H2 Console
 		.authorizeHttpRequests(auth -> auth
 				.requestMatchers("/",
 						"/h2-console/**",

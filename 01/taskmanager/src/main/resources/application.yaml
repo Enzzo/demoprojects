@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: taskmanager
+  profiles:
+    active: dev
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.yaml

@@ -1,0 +1,31 @@
+services:
+  task-manager:
+    build: .
+    container_name: task-manager
+    image: taskmanager:latest
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      PG_URL: postgres
+      PG_PORT: 5432
+      PG_DATABASE: taskdb
+      PG_USERNAME: postgres
+      PG_PASSWORD: postgres
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      
+  postgres:
+    image: postgres:latest
+    container_name: postgres_for_taskdb
+    environment:
+      POSTGRES_DB: taskdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres-taskdb:/var/lib/postgresql/data
+volumes:
+  postgres-taskdb:
+    name: postgres-taskdb
