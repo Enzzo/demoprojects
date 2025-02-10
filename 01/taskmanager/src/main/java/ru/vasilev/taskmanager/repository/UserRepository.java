@@ -5,9 +5,9 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import ru.vasilev.taskmanager.model.Task;
+import ru.vasilev.taskmanager.model.User;
 
 @Repository
-public interface TaskRepository extends JpaRepository<Task, Long>  {
-	Optional<Task> findByTitle(String title);
+public interface UserRepository extends JpaRepository<User, Long>  {
+	Optional<User> findByUsername(String username);
 }

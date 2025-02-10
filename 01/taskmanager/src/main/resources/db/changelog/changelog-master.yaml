@@ -1,8 +1,7 @@
 databaseChangeLog:
   - include:
-      file: changes/001-initial-schema.yaml
-#      file: classpath:db/changelog/changes/001-initial-schema.yaml
+      file: changes/001-initial-tasks.yaml
       relativeToChangelogFile: true
-#  - include:
-#      file: db/changelog/changes/002-add-tasks-table.yaml
-#      relativeToChangelogFile: true
+  - include:
+      file: changes/002-initial-users.yaml
+      relativeToChangelogFile: true
