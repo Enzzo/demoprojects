@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    container_name: baseproject
+    environment:
+      PG_PORT: 5432
+      PG_DATABASE: basedb
+      PG_URL: postgres
+      PG_USERNAME: postgres
+      PG_PASSWORD: postgres
+      SPRING_PROFILES_ACTIVE: prod
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: basedb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - basedb:/var/lib/postgresql/data
+volumes:
+  basedb:
+    name: basedb

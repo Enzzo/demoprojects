@@ -1,0 +1,35 @@
+{
+	"folders": {},
+	"connections": {
+		"h2_embedded_v2-194cf445980-166d5a40c738d8d0": {
+			"provider": "h2",
+			"driver": "h2_embedded_v2",
+			"name": "devdb",
+			"save-password": true,
+			"configuration": {
+				"database": "jdbc:h2:mem:devdb",
+				"url": "jdbc:h2:mem:devdb",
+				"configurationType": "URL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Разработка",
+			"color": "255,255,255",
+			"description": "База данных для разработки",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}
