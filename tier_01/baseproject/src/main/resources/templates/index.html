@@ -5,6 +5,13 @@
 <title>Base Project</title>
 </head>
 <body>
+	<h1>Добавить заметку:</h1>
+	<form th:action="@{/notes}" method="POST" th:object="${note}">
+		<label for="content">Заметка:</label>
+		<input type="text" th:field="*{content}" id="content"></input>
+		<br>
+		<button type="submit">save</button>
+	</form>
 	<h1>Список заметок</h1>
 	<ul>
 		<li th:each="note : ${notes}" th:text="${note.getContent()}">VALUE</li>
