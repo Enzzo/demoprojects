@@ -1,13 +1,12 @@
-package ru.vasilev.crud_service;
+package ru.vasilev.authservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CrudServiceApplication {
+public class AuthServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CrudServiceApplication.class, args);
+		SpringApplication.run(AuthServiceApplication.class, args);
 	}
-
 }
