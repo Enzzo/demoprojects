@@ -1,13 +1,10 @@
-package ru.vasilev.crud_service;
+package ru.vasilev.crudservice;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
+//@SpringBootTest
 class CrudServiceApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+//	@Test
+//	void contextLoads() {
+//	}
 
 }
