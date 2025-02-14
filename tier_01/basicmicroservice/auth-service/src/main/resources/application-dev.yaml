@@ -3,7 +3,7 @@ spring:
     activate:
       on-profile: dev
   datasource:
-    driver-class-name: org.h2.Ddriver
+    driver-class-name: org.h2.Driver
     url: jdbc:h2:mem:authdb
     username: sa
     password: ""
