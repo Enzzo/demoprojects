@@ -1,0 +1,21 @@
+services:
+  app:
+    build: .
+    container_name: taskmanager
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+    env_file:
+      - .env
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+      
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ${PG_DATABASE}
+      POSTGRES_USER: ${PG_USERNAME}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+    ports:
+      - "5432:5432"

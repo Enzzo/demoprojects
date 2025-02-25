@@ -1,0 +1,23 @@
+spring:
+  config:
+    activation:
+      on-profile: dev
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:secdb
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show-sql: true
+        format-sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+  thymeleaf:
+    cache: false
