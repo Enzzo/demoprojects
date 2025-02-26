@@ -1,6 +1,6 @@
 services:
   app:
-    build: .
+    image: vasilev/taskmanager:0.0.1-SNAPSHOT
     container_name: taskmanager
     environment:
       SPRING_PROFILES_ACTIVE: prod
@@ -14,8 +14,8 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_DB: ${PG_DATABASE}
-      POSTGRES_USER: ${PG_USERNAME}
-      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DATABASE:tmdb}
+      POSTGRES_USER: ${PG_USERNAME:postgres}
+      POSTGRES_PASSWORD: ${PG_PASSWORD:postgres}
     ports:
       - "5432:5432"
