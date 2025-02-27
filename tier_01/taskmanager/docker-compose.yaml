@@ -2,7 +2,7 @@ services:
   app:
     image: vasilev/taskmanager:0.0.1-SNAPSHOT
     container_name: taskmanager
-    environment:
+    env_file:
       - .env
     ports:
       - 8080:8080
@@ -12,11 +12,11 @@ services:
   postgres:
     image: postgres:latest
     environment:
-      POSTGRES_DB: tmdb
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ${PG_DATABASE}
+      POSTGRES_USER: ${PG_USERNAME}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
     ports:
-      - 5432:5432
+      - ${PG_PORT}:5432
     volumes:
       - tmdb:/var/lib/postgresql/data
 volumes:
