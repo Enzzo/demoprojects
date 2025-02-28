@@ -1,6 +1,7 @@
 package ru.vasilev.taskmanager.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,27 +22,22 @@ public class TaskService {
 		return taskRepository.findAll();
 	}
 
-	public Task findById(Long id) {
-		return taskRepository.findById(id).orElse(null);
+	public Optional<Task> findById(Long id) {
+		return taskRepository.findById(id);
 	}
 
-	public Task findByTitle(String title) {
-		return taskRepository.findByTitle(title).orElse(null);
+	public Optional<Task> findByTitle(String title) {
+		return taskRepository.findByTitle(title);
 	}
 
 	public Task save(Task task) {
 		return taskRepository.save(task);
 	}
 	
-	public void update(Long id, Task task) {
-		task.setId(id);
-		taskRepository.save(task);
+	public Task update(Task task) {
+		return taskRepository.save(task);
 	}
 
 	public void delete(Long id) {
-		Task taskToDelete = taskRepository.findById(id).orElse(null);
-		if (taskToDelete != null) {
-			taskRepository.delete(taskToDelete);
-		}
-	}
+		taskRepository.deleteById(id);	}
 }
