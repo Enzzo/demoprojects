@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" th:href="@{/styles.css}" />
+<title>Список задач</title>
+</head>
+<body>
+	<div>
+		<h3>Список задач</h3>
+		<table>
+			<thead>
+				<th>id</th><th>title</th><th>description</th><th>status</th><th>created at</th><th></th><th></th>
+			</thead>
+			<tbody>
+				<tr th:each="task : ${tasks}">
+					<td th:text="${task.id}">id</td>
+					<td th:text="${task.title}">title</td>
+					<td th:text="${task.description}">description</td>
+					<td th:text="${task.status}">status</td>
+					<td th:text="${task.createdAt}">created at</td>
+					<td><a th:href="@{/tasks/edit/{id}(id = ${task.id})}">изменить</a></td>
+					
+					<td><a th:href="@{/tasks/delete/{id}(id = ${task.id})}">Удалить</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/tasks/create}">Добавить задачу</a>
+	</div>
+</body>
+</html>

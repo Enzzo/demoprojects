@@ -13,9 +13,12 @@
 
 ## Переменные окружения
 В файле `.env` укажите:
-- `PG_DATABASE` - имя базы данных
-- `PG_USERNAME` - имя пользователя для подключения к PostgreSQL
-- `PG_PASSWORD` - пароль для подключения к PostgreSQL
+- `PG_PORT` - порт (например 5432)
+- `PG_DATABASE` - имя базы данных (например tmdb)
+- `PG_URL` - URL базы (например postgres)
+- `PG_USERNAME` - имя пользователя для подключения к PostgreSQL (например postgres)
+- `PG_PASSWORD` - пароль для подключения к PostgreSQL (например postgres)
+- `SPRING_PROFILES_ACTIVE` - профиль (например prod)
 
 ## Запуск
 ### Локально (dev-профиль)

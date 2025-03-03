@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.validation.Valid;
 import ru.vasilev.taskmanager.model.Task;
 import ru.vasilev.taskmanager.service.TaskService;
 
@@ -39,8 +40,8 @@ public class TaskRestController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Task> save(){
-		return ResponseEntity.ok(taskService.save(new Task()));
+	public ResponseEntity<Task> save(@Valid @RequestBody Task task){
+		return ResponseEntity.ok(taskService.save(task));
 	}
 	
 	@PutMapping("/{id}")
