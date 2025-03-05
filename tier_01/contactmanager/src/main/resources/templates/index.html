@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styles.css">
+<title>Home Page</title>
+</head>
+<body>
+	<h1>Главная страница</h1>
+	<a th:href="@{/contacts}">Список контактов</a>
+	<br />
+	<a th:href="@{/contacts/new}">Добавить контакт</a>
+</body>
+</html>

@@ -39,7 +39,7 @@ public class ContactService {
 			c.setName(contact.getName());
 			c.setEmail(contact.getEmail());
 			c.setPhone(contact.getPhone());
-			return c;
+			return contactRepo.save(c);
 		});
 	}
 	

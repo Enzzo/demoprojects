@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<h1>Контакты</h1>
+	<form method="POST" th:action="${contact.id}? @{/contacts/update/{id}(id=${contact.id})} : @{/contacts}" th:object="${contact}">
+		<h3>Добавить (изменить) контакт</h3>
+
+		<label for="name">Имя</label> 
+		<input type="text" th:field="*{name}" id="name" placeholder="Введите имя контакта" required /> 
+		<span class="validationError" th:if="@{#fields.hasErrors('name')}"
+			th:errors="*{name}">name error</span> <br />
+
+		<label for="email">Email</label> 
+		<input type="text"
+			th:field="*{email}" id="email" placeholder="Введите email" required /> <span
+			class="validationError" th:if="@{#fields.hasErrors('email')}"
+			th:errors="*{email}">email error</span> <br />
+
+		<label for="phone">Телефон</label> 
+		<input type="text"
+			th:field="*{phone}" id="phone" placeholder="Введите телефон" required /> <span
+			class="validationError" th:if="@{#fields.hasErrors('phone')}"
+			th:errors="*{phone}">name error</span><br />
+		<button type="submit">Сохранить</button>
+	</form>
+	<a th:href="@{/contacts}">Список контактов</a>
+	<br />
+	<a th:href="@{/}">На главную</a>
+</body>
+</html>
